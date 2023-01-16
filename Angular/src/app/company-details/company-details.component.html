@@ -1,0 +1,26 @@
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    
+      <button routerLink="/all-companies" class="btn btn-success">Company Management</button> 
+      <form class="d-flex" role="search"> 
+        <a class="nav-link active" style="font-size: x-large;"> {{user}} </a>
+        <button routerLink="/login" (click)='logout()' class="btn btn-danger">Logout</button>
+    </form>
+  </div>
+</nav>
+
+<nav class="navbar bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-center">
+          <h1>Welcome to the Company Management</h1>
+          <p>Company Management is an application where you view all company details.
+            You can also add new company details as well as edit and delete any existing company
+            details.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

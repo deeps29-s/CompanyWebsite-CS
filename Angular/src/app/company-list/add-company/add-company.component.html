@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h3>Add Company</h3>
+                    
+                    <div *ngIf ="message" class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Success!</strong> Company Details registered successfully.
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    
+                </div>
+                <form [formGroup]="addCompany" (ngSubmit)="SaveData()">
+
+                    <div class="mb-3">
+                        <label class="form-label">UserId</label>
+                      <input type="text" class="form-control" placeholder="Enter Id" 
+                      formControlName="userId">
+                    </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label">CompanyName</label>
+                          <input type="text" class="form-control" placeholder="Enter CompanyName" 
+                          formControlName="companyName">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">CEO</label>
+                            <input type="text" class="form-control" placeholder="Enter CEO" 
+                            formControlName="ceo">
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="form-label">Turnover</label>
+                          <input type="text" class="form-control" placeholder="Enter Turnover" 
+                          formControlName="turnover">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Website</label>
+                          <input type="text" class="form-control" placeholder="Enter Website" 
+                          formControlName="website">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">StockExchange</label>
+                          <input type="text" class="form-control" placeholder="Enter StockExchange" 
+                          formControlName="stockExchange">
+                        </div>
+
+                        
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-primary me-md-2" class="btn btn-success" type="submit">Submit</button>
+                            <button class="btn btn-primary" class="btn btn-danger" type="reset">Close</button>
+                        </div>
+                      
+                      <!-- <a style="color: #ffff;margin-top:10px" routerLink="/login">Already registered? Click to Login!</a> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

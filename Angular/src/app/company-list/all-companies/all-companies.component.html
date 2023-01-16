@@ -1,0 +1,98 @@
+
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+      <h4>Company</h4> 
+      <h4 style="color:azure;"></h4>
+        <div class="d-flex">
+           <button (click)="clickAddCompany()" type="button" id="add-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="btn btn-success">Add Company</div>
+          </button> 
+           <button  routerLink="/login" (click)='logout()' class="btn btn-danger">Logout</button> 
+        </div>
+  </div>
+</nav>
+
+<!-- <h6>Filter</h6> -->
+<table class="table mt-3">
+    <thead>
+      <tr>
+         <!-- <th scope="col">UserId</th>  -->
+         <!-- <th scope="col">Id</th> -->
+        <th scope="col">CompanyName</th>
+        <th scope="col">CEO</th>
+        <th scope="col">Turnover</th>
+        <th scope="col">Website</th>
+        <th scope="col">StockExchange</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+             <tr *ngFor="let item of addCompany">  
+       <!-- <th scope="row">{{item.userId}}</th>   -->
+       <!-- <td>{{item.id}}</td> -->
+        <td>{{item.companyName}}</td>
+        <td>{{item.ceo}}</td>
+        <td>{{item.turnover}}</td>
+        <td>{{item.website}}</td>
+        <td>{{item.stockExchange}}</td>
+        <td>  
+          <button (click)="onEdit(item)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+          <button (click)="deleteCompany(item);" class="btn btn-danger mx-3">Delete</button>
+          </td>
+        </tr>       
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">CompanyList</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue" class ="was-validated">
+          
+ 
+         
+          
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">CompanyName</label>
+            <input type="text" formControlName="companyName" placeholder="Enter company Name" class="form-control" id="exampleInputPassword1" required>
+            <!-- <div *ngIf="CompanyName.touched && CompanyName.touched" class="alert alert-danger">
+              <div *ngIf="CompanyName.hasError('CompanyNameExists')">CompanyNameExists</div>
+
+            </div> -->
+            <!-- <div *ngIf="formValue.get('companyName').hasError('CompanyNameExists')" class="alert alert-danger">
+              Company name is already Exists.
+            </div> -->
+            <!-- <div *ngIf="formValue.get('companyName').valid" class="alert alert-success"></div> -->
+            <!-- <div *ngIf="formValue.get('companyName').touched" class="alert alert-warning"></div> -->
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">CEO</label>
+            <input type= "text" formControlName="ceo" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Turnover</label>
+            <input type= "number" formControlName="turnover" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Website</label>
+            <input type="text" formControlName="website" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">StockExchange</label>
+            <input type="text" formControlName="stockExchange" class="form-control" id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" *ngIf="showAdd" (click)="postcompanydetails()" class="btn btn-primary">Save</button>
+        <button type="button" id="cancel" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showUpdate" (click)="updatecompanydetails()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
